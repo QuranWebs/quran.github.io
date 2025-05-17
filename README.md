@@ -1,1 +1,1 @@
-# quran.github.io
+# Quran
