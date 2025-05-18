@@ -6,6 +6,9 @@
   --white: #fff;
   --bars: #FAF9F6;
 }
+html {
+  scroll-behavior: smooth;
+}
 
 * {
   margin: 0;
@@ -60,10 +63,15 @@ body {
 
 /* Hero Section */
 .hero {
-  text-align: center;
-  padding: 4rem 2rem;
+  height: 100vh; /* Full screen height */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 2rem;
   background: var(--primary);
   color: var(--white);
+  text-align: center;
 }
 
 .hero h1 {
@@ -123,12 +131,17 @@ body {
 }
 
 .more-emotions {
-  display: none;
-  margin-top: .1rem; /* Reduced space from "More emotions" */
-  padding: 3 10%; /* Matches main features padding */
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1rem;
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  padding: 0 15rem;
 }
+
+.hidden {
+  display: none;
+}
+
 .extra-card {
   display: none;
 }
