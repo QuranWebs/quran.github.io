@@ -3,48 +3,74 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Modern Homepage</title>
+  <title>Quran</title>
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
   <header>
     <nav class="navbar">
-      <div class="logo">MySite</div>
+      <div class="logo">QuranHelp</div>
       <button class="menu-toggle" onclick="toggleMenu()">☰</button>
       <ul class="nav-links" id="navLinks">
-        <li><a href="#">Home</a></li>
-        <li><a href="#">Features</a></li>
-        <li><a href="#">About</a></li>
-        <li><a href="#">Contact</a></li>
+        <li><a href="#"><b>Home</b></a></li>
+        <li><a href="#"><b>Duas</b></a></li>
+        <li><a href="#"><b>About</b></a></li>
+        <li><a href="#"><b>Contact</b></a></li>
       </ul>
     </nav>
   </header>
 
   <section class="hero">
-    <h1>Welcome to My Modern Site</h1>
-    <p>Clean. Fast. Beautiful.</p>
+    <h1>Welcome to مساعدة القرآن</h1>
+    <p>Find comfort in divine knowledge</p>
     <a href="#" class="btn">Get Started</a>
   </section>
+<br><section class="features">
+  <!-- Initial 8 emotions -->
+  <div class="feature-card"><h3 style="text-align:center;">Angry</h3></div>
+  <div class="feature-card"><h3 style="text-align:center;">Anxious</h3></div>
+  <div class="feature-card"><h3 style="text-align:center;">Lost</h3></div>
+  <div class="feature-card"><h3 style="text-align:center;">Happy</h3></div>
+  <div class="feature-card"><h3 style="text-align:center;">Sad</h3></div>
+  <div class="feature-card"><h3 style="text-align:center;">Overwhelmed</h3></div>
+  <div class="feature-card"><h3 style="text-align:center;">Grateful</h3></div>
+  <div class="feature-card"><h3 style="text-align:center;">Doubtful</h3></div>
 
-  <section class="features">
-    <div class="feature-card">
-      <h2>Fast</h2>
-      <p>Optimized for speed with clean code and best practices.</p>
-    </div>
-    <div class="feature-card">
-      <h2>Responsive</h2>
-      <p>Looks great on phones, tablets, and desktops.</p>
-    </div>
-    <div class="feature-card">
-      <h2>Modern</h2>
-      <p>Built using the latest HTML, CSS, and JavaScript standards.</p>
-    </div>
-  </section>
+  <!-- More emotions toggle -->
+  <div class="more-toggle" onclick="toggleMoreEmotions()">
+    <h3 style="text-align:center;">More emotions <span id="arrow">▾</span></h3>
+  </div>
 
+  <!-- Hidden extra emotion cards -->
+  <div class="feature-card extra-card"><h3 style="text-align:center;">Hopeful</h3></div>
+  <div class="feature-card extra-card"><h3 style="text-align:center;">Lonely</h3></div>
+  <div class="feature-card extra-card"><h3 style="text-align:center;">Confident</h3></div>
+  <div class="feature-card extra-card"><h3 style="text-align:center;">Regretful</h3></div>
+  <div class="feature-card extra-card"><h3 style="text-align:center;">Regretful</h3></div>
+  <div class="feature-card extra-card"><h3 style="text-align:center;">Regretful</h3></div>
+  <div class="feature-card extra-card"><h3 style="text-align:center;">Regretful</h3></div>
+  <div class="feature-card extra-card"><h3 style="text-align:center;">Regretful</h3></div>
+  <div class="feature-card extra-card"><h3 style="text-align:center;">Regretful</h3></div>
+  <div class="feature-card extra-card"><h3 style="text-align:center;">Regretful</h3></div>
+  <div class="feature-card extra-card"><h3 style="text-align:center;">Regretful</h3></div>
+  <div class="feature-card extra-card"><h3 style="text-align:center;">Regretful</h3></div>
+  <div class="feature-card extra-card"><h3 style="text-align:center;">Regretful</h3></div>
+  <div class="feature-card extra-card"><h3 style="text-align:center;">Regretful</h3></div>
+  <div class="feature-card extra-card"><h3 style="text-align:center;">Regretful</h3></div>
+  <div class="feature-card extra-card"><h3 style="text-align:center;">Regretful</h3></div>
+  <div class="feature-card extra-card"><h3 style="text-align:center;">Regretful</h3></div>
+  <div class="feature-card extra-card"><h3 style="text-align:center;">Regretful</h3></div>
+  <div class="feature-card extra-card"><h3 style="text-align:center;">Regretful</h3></div>
+  <div class="feature-card extra-card"><h3 style="text-align:center;">Regretful</h3></div>
+</section>
+  </div>
+    
+</section>
   <footer>
-    <p>© 2025 MySite. All rights reserved.</p>
+    <p>© QuranWebs.</p>
   </footer>
-<link rel="stylesheet" href="style.css?v=1">
-<script src="script.js"></script>
+
+  <button class="dark-toggle" onclick="toggleDarkMode()" aria-label="Toggle dark mode">☽</button>
+  <script src="script.js" defer></script>
 </body>
 </html>
