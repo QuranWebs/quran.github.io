@@ -1,3 +1,4 @@
+/* Root Variables */
 :root {
   --primary: #61a075;
   --darkgreen: #447654;
@@ -6,6 +7,7 @@
   --white: #fff;
   --bars: #FAF9F6;
 }
+
 html {
   scroll-behavior: smooth;
 }
@@ -63,7 +65,7 @@ body {
 
 /* Hero Section */
 .hero {
-  height: 100vh; /* Full screen height */
+  height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -150,6 +152,28 @@ body {
   display: block;
 }
 
+/* Custom Section */
+.custom-section {
+  height: 100vh;
+  background: #cae7d4;
+  padding: 4rem 2rem;
+  text-align: center;
+  color: var(--text);
+}
+
+.custom-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--darkgreen);
+}
+
+.custom-section p {
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
 /* Footer */
 footer {
   text-align: center;
@@ -161,9 +185,9 @@ footer {
 
 /* Dark Mode */
 body.dark-mode {
-  --bg: #121212;
-  --text: #eaeaea;
-  --primary: #6366f1;
+  --bg: #b9dae5;
+  --text: #1a1a1a;
+  --primary: #83acba;
   --white: #1e1e1e;
 }
 
@@ -178,7 +202,7 @@ body.dark-mode .hero {
 }
 
 body.dark-mode .feature-card {
-  background: #1f1f1f;
+  background: #b9dae5;
   color: var(--text);
 }
 
