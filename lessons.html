@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Quran</title>
+  <style>
+    :root {
+      --primary: #61a075;
+      --darkgreen: #447654;
+      --bg: #b2dabf;
+      --text: #333;
+      --white: #fff;
+      --bars: #FAF9F6;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--bars);
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--darkgreen);
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: var(--darkgreen);
+      font-weight: 500;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      color: var(--primary);
+      cursor: pointer;
+    }
+
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0 2rem;
+      background: var(--primary);
+      color: var(--white);
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      background: var(--white);
+      color: var(--primary);
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(700px, 1fr));
+      gap: 2rem;
+      padding: 3rem 10%;
+    }
+
+    .feature-card {
+      background: var(--white);
+      padding: 1rem;
+      border-radius: 2rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      text-align: center;
+    }
+
+    .custom-section {
+      height: 75vh;
+      background: #cae7d4;
+      padding: 4rem 2rem;
+      text-align: center;
+      color: var(--text);
+    }
+
+    .custom-section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--darkgreen);
+    }
+
+    .custom-section p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .hover-button {
+      background-color: #65b37d;
+      color: white;
+      padding: 12px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .hover-button:hover {
+      transform: translateY(-5px);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: var(--white);
+      color: var(--text);
+      box-shadow: 0 -2px 5px rgba(0,0,0,0.05);
+    }
+
+    body.dark-mode {
+      --bg: #b9dae5;
+      --text: #1a1a1a;
+      --primary: #83acba;
+      --white: #1e1e1e;
+    }
+
+    body.dark-mode .navbar,
+    body.dark-mode footer {
+      background: var(--white);
+    }
+
+    body.dark-mode .hero {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    body.dark-mode .feature-card {
+      background: #b9dae5;
+      color: var(--text);
+    }
+
+    .dark-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      font-size: 24px;
+      cursor: pointer;
+      z-index: 1000;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .dark-toggle:hover {
+      background: #4f46e5;
+      transform: scale(1.1);
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        flex-direction: column;
+        display: none;
+        position: absolute;
+        top: 60px;
+        right: 2rem;
+        background: var(--white);
+        padding: 1rem;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        border-radius: 0.5rem;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">QuranHelp</div>
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html"><b>Home</b></a></li>
+        <li><a href="dua.html"><b>Duas</b></a></li>
+        <li><a href="lessons.html"><b>Lessons</b></a></li>
+        <li><a href="video.html"><b>Videos</b></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Lessons</h1>
+    <p>As muslims, we should have a goal to understand what Islam involves. You have to indulge and explore key areas like the Five Pillars, the significance of the Quran & Prophet Muhammad, and the importance of moral and ethical behavior. This includes submission to Allah SWT, the significance of prayer/fasting, and beliefs about the Day of Judgment, angels, and prophets. In Islam, knowledge is highly valued and considered an obligation for every Muslim. Seeking knowledge is seen as a path to understanding Allah SWT, appreciating the world, and living a more fulfilling life.</p>
+    <a href="#emotions" class="btn">Info</a>
+  </section>
+
+  <section class="features">
+    <h2 style="text-align:center;">Five Pillars of Islam:</h2>
+    <div class="feature-card"><h3 style="text-align:center;">
+      Shahada (Declaration of Faith): Declaring belief in one God (Allah) and the prophethood of Muhammad. <br>
+      Salah (Prayer): Performing five daily prayers facing the Kaaba in Mecca. <br>
+      Zakat (Charity): Giving a portion of one's wealth to those in need. <br>
+      Sawm (Fasting): Abstaining from food and drink during the daylight hours of Ramadan. <br> 
+      Hajj (Pilgrimage): Making a pilgrimage to Mecca once in a lifetime, if physically and financially able.
+    </h3></div>
+
+    <h2 style="text-align:center;">The Quran and Prophet Muhammad (SAW):</h2>
+    <div class="feature-card"><h3 style="text-align:center;">
+      The Quran: The central religious text of Islam, believed to be the literal word of God revealed to Prophet Muhammad (SAW).<br>
+      Prophet Muhammad (SAW): The final prophet and messenger of God, whose teachings and actions (Sunnah) provide a guide for Muslims.
+    </h3></div>
+
+    <h2 style="text-align:center;">Moral and Ethical Behavior:</h2>
+    <div class="feature-card"><h3 style="text-align:center;">
+      Virtues and Character: Islam emphasizes virtues like kindness, charity, honesty, and patience. <br>
+      Social Justice: Islam encourages Muslims to be just and fair in their dealings with others.
+    </h3></div>
+
+    <h2 style="text-align:center;">Other Important Concepts</h2>
+    <div class="feature-card"><h3 style="text-align:center;">
+      Submission to Allah: Muslims are called to submit their will to God's will and live according to His teachings. <br>
+      Prayer (Salah): A central practice in Islam, performed five times a day to connect with God. <br>
+      Fasting (Sawm): A period of spiritual reflection and discipline during the month of Ramadan. <br>
+      Belief in the Day of Judgment: The belief in a final judgment day where actions will be weighed and people will be rewarded or punished accordingly. <br>
+      Belief in Angels and Prophets: Islam acknowledges the existence of angels and prophets, including Abraham, Moses, and Jesus.
+    </h3></div>
+  </section>
+
+  <section class="custom-section">
+    <div class="custom-content">
+      <h2>More Information</h2>
+      <p>Islam is a complex religion with the Five Pillars as its foundation. These pillars <b>emphasize faith</b> in Allah (SWT) and Prophet Muhammad (SAW), <b>daily prayers, charitable giving, fasting during Ramadan, and pilgrimage to Mecca.</b> The Quran, the literal word of God, <b>guides Muslims, emphasizing virtues like kindness, charity, honesty, and patience.</b> Muslims are called to <b>submit to God's will, practice prayer, fast during Ramadan, and believe in the Day of Judgment.</b></p>
+      <br>
+      <button class="hover-button"><b>Learn More</b></button>
+    </div>
+  </section>
+
+  <footer>
+    <p>© QuranWebs.</p>
+  </footer>
+
+  <button class="dark-toggle" onclick="toggleDarkMode()" aria-label="Toggle dark mode">☽</button>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById("navLinks");
+      nav.classList.toggle("show");
+    }
+
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+      const theme = document.body.classList.contains("dark-mode") ? "dark" : "light";
+      localStorage.setItem("theme", theme);
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme === "dark") {
+        document.body.classList.add("dark-mode");
+      }
+    });
+  </script>
+</body>
+</html>
