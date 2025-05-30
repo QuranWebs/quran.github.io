@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Videos to Watch</title>
+  <style>
+    :root {
+      --primary: #61a075;
+      --darkgreen: #447654;
+      --bg: #b2dabf;
+      --text: #333;
+      --white: #fff;
+      --bars: #FAF9F6;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--bars);
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--darkgreen);
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: var(--darkgreen);
+      font-weight: 500;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      color: var(--primary);
+      cursor: pointer;
+    }
+
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0 2rem;
+      background: var(--primary);
+      color: var(--white);
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      background: var(--white);
+      color: var(--primary);
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .image-row {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 2rem;
+    }
+
+    .image-card {
+      text-align: center;
+      max-width: 200px;
+    }
+
+    .image-card img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .hover-button {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 15px;
+      background-color: #65b37d;
+      color: white;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .hover-button:hover {
+      transform: translateY(-5px);
+    }
+
+    .custom-section {
+      background: #cae7d4;
+      padding: 4rem 2rem;
+      text-align: center;
+      color: var(--text);
+    }
+
+    .custom-section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--darkgreen);
+    }
+
+    .custom-section p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: var(--white);
+      color: var(--text);
+      box-shadow: 0 -2px 5px rgba(0,0,0,0.05);
+    }
+
+    .dark-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 1.5rem;
+      cursor: pointer;
+      z-index: 1000;
+    }
+
+    body.dark-mode {
+      --bg: #b9dae5;
+      --text: #1a1a1a;
+      --primary: #83acba;
+      --white: #1e1e1e;
+    }
+
+    body.dark-mode .navbar,
+    body.dark-mode footer {
+      background: var(--white);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">QuranHelp</div>
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html"><b>Home</b></a></li>
+        <li><a href="dua.html"><b>Duas</b></a></li>
+        <li><a href="lessons.html"><b>Lessons</b></a></li>
+        <li><a href="video.html"><b>Videos</b></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Educational Videos</h1>
+    <p>Educational videos play a vital role in promoting understanding and acceptance <br> of Islamic teachings within the Muslim community. By browsing this page, it offers an accessible <br>and engaging way to learn about Islamic principles and culture, making complex information <br> more appealing viewers.</p>
+    <a href="#emotions" class="btn">Watch</a>
+  </section>
+
+  <section class="custom-section">
+    <div class="custom-content">
+      <h2>Channels for Children to Learn</h2>
+      <br>
+      <div class="image-row">
+        <div class="image-card">
+          <img src="omar-hana.jpg" alt="Omar and Hana">
+          <a href="https://www.youtube.com/channel/UC178EmfQAV3OT-UpuO6WUMg" target="_blank" class="hover-button">Watch on YouTube</a>
+        </div>
+        <div class="image-card">
+          <img src="one4kids.jpg" alt="One4kids">
+          <a href="https://www.youtube.com/@One4kids-Zaky" target="_blank" class="hover-button">Watch on YouTube</a>
+        </div>
+        <div class="image-card">
+          <img src="image3.jpg" alt="MiniMuslims">
+          <a href="https://www.youtube.com/channel/UCIDYe6rgdROl77DDevNIcPA" target="_blank" class="hover-button">Watch on YouTube</a>
+        </div>
+        <div class="image-card">
+          <img src="image4.jpg" alt="Iqra Cartoon">
+          <a href="https://www.youtube.com/channel/UCSL4Dn-FQlvHZiSKipQZMqw" target="_blank" class="hover-button">Watch on YouTube</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <br><section class="video-section" style="display: flex; flex-direction: column; gap: 3rem; padding: 2rem; align-items: center;">
+
+  <!-- Row 1 -->
+  <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+    <!-- Video 1 -->
+    <div style="text-align: center;">
+      <iframe width="450" height="300" src="https://www.youtube.com/embed/r0Lv45SH3dk"
+        title="YouTube video player 1" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+      <p style="max-width: 450px; margin-top: 1rem;">
+        <b>In the video, it answers the question if you are able to recover your past missed prayers. It educates you to stay true to yourself and don’t allow the laziness in you to take over you when thinking about Prayer. Gives us situations to see thoroughly that it is important for us Muslims to pray with the time that Allah has given us.
+      </p>
+    </div>
+
+    <!-- Video 2 -->
+    <div style="text-align: center;">
+      <iframe width="450" height="300" src="https://www.youtube.com/embed/rJehIEnUFwM"
+        title="YouTube video player 2" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+      <p style="max-width: 450px; margin-top: 1rem;">
+        <b> In the video, Omar Suleiman talks about how important it is to be sincere, understand what you're saying in prayer, and pray regularly. He encourages focusing during Salah to feel closer to Allah and make your prayers more meaningful.
+      </p>
+    </div>
+  </div>
+
+  <!-- Row 1 -->
+  <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+    <!-- Video 1 -->
+    <div style="text-align: center;">
+      <iframe width="450" height="300" src="https://www.youtube.com/embed/VnUwS-wvl-s"
+        title="YouTube video player 1" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+      <p style="max-width: 450px; margin-top: 1rem;">
+        <b>The topic of whether you can make up for missing prayers in the past is addressed in the video. The video advises you to be loyal to yourself and  provides us with opportunities to fully understand why it is crucial that Muslims use the time that Allah gave them for prayer.
+      </p>
+    </div>
+
+    <!-- Video 2 -->
+    <div style="text-align: center;">
+      <iframe width="450" height="300" src="https://www.youtube.com/embed/DY72rADCI7s"
+        title="YouTube video player 2" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+      <p style="max-width: 450px; margin-top: 1rem;">
+        <b>The video addresses the importance of performing Salah regularly and discusses the consequences of neglecting it because it is one of the most important pillars of Islam. Preventing yourself from praying will only prevent you from gaining the full benefit of Prayer. It encourages the viewers to maintain a habit of salah regardless of the situations they face.</p>
+    </div>
+  </div>
+
+  <!-- Row 2 -->
+  <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+    <!-- Video 3 -->
+    <div style="text-align: center;">
+      <iframe width="450" height="300" src="https://www.youtube.com/embed/sDls6Dux5P0"
+        title="YouTube video player 3" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+      <p style="max-width: 450px; margin-top: 1rem;">
+        <b>The video emphasizes that no matter what is going on in your life, you must pray. That prayer will keep you away from sin. Telling you that salah is the way to straighten your life out. Prayer is there to guide you and in order to gain that path, you must pray.</p>
+    </div>
+
+    <!-- Video 4 -->
+    <div style="text-align: center;">
+      <iframe width="450" height="300" src="https://www.youtube.com/embed/ujUmcu_Uzv0"
+        title="YouTube video player 4" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+      <p style="max-width: 450px; margin-top: 1rem;">
+        <b>Omar Suleiman explains that the best salah is the ones that are given full attention and when are hearts are more present towards it. Every Salah should be our best prayer. He reminds us that we won’t be asked if you were late to work or didn’t take a shower, you will be asked about the missed prayers you decided not to repent for and pray again. Prayer is the first thing that rises up to protect you for your own good.
+      </p>
+    </div>
+  </div>
+
+  <!-- Row 1 -->
+  <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+    <!-- Video 1 -->
+    <div style="text-align: center;">
+      <iframe width="450" height="300" src="https://www.youtube.com/embed/l-M8yjw46g8"
+        title="YouTube video player 1" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+      <p style="max-width: 450px; margin-top: 1rem;">
+        <b>A reminder that you are able to overcome the whispers that Shaytan brings to you during prayer and that you need to bring intention to the act of Salah. We all are capable to pray with pure faith in our hearts.</p>
+    </div>
+
+    <!-- Video 2 -->
+    <div style="text-align: center;">
+      <iframe width="450" height="300" src="https://www.youtube.com/embed/m0xfbS0rNsw"
+        title="YouTube video player 2" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+      <p style="max-width: 450px; margin-top: 1rem;">
+        <b>The video highlights the spiritual, mental, and physical benefits of Salah, emphasizing how it strengthens the connection you can have with Allah, promotes peace, and lastly, encourages you to gain a habit of prayer </p>
+    </div>
+  </div>
+
+  <!-- Row 2 -->
+  <div style="display: flex; justify-content: center; gap: 2rem; flex-wrap: wrap;">
+    <!-- Video 3 -->
+    <div style="text-align: center;">
+      <iframe width="450" height="300" src="https://www.youtube.com/embed/reWm6cuI2cY"
+        title="YouTube video player 3" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+      <p style="max-width: 450px; margin-top: 1rem;">
+        <b>The video gives helpful tips to ensure you never miss Salah, like setting reminders, making a prayer schedule, putting prayer first, and focusing on your intention to stay consistent. It talks about how planning and dedication can help you pray on time every day.
+</p>
+    </div>
+
+    <!-- Video 4 -->
+    <div style="text-align: center;">
+      <iframe width="450" height="300" src="https://www.youtube.com/embed/BMWxxWV8EH0"
+        title="YouTube video player 4" frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowfullscreen>
+      </iframe>
+      <p style="max-width: 450px; margin-top: 1rem;">
+        <b>The video emphasizes the importance of performing Salah with sincerity by ensuring proper steps like making wudu, waking up for Fajr, praying on time, and maintaining a sincere intention.  Listen to this video if you have any questions about Salah. Sheikh Assaad might answer him in this lengthy video. 
+      </p>
+    </div>
+  </div>
+</section>
+  
+  <section class="custom-section">
+    <div class="custom-content">
+      <h2>More Information</h2>
+      <p>When feeling lost, remember that Allah is always near and His mercy is endless. Turn to Him through prayer and the Qur'an, as they offer comfort, clarity, and guidance. </p>
+      <br>
+<a href="https://www.youtube.com" class="hover-button" target="_blank"><b>Watch More on YouTube</b></a>
+    </div>
+  </section>
+  <section class="custom-section">
+    <div class="custom-content">
+      <h2>More Information</h2>
+      <p>When feeling lost, remember that Allah is always near and His mercy is endless. Turn to Him through prayer and the Qur'an, as they offer comfort, clarity, and guidance. </p>
+      <br>
+      <a href="https://www.youtube.com" class="hover-button" target="_blank"><b>Watch More on YouTube</b></a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© QuranWebs.</p>
+  </footer>
+
+  <button class="dark-toggle" onclick="toggleDarkMode()" aria-label="Toggle dark mode">☽</button>
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById("navLinks");
+      nav.style.display = nav.style.display === "flex" ? "none" : "flex";
+    }
+
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+    }
+  </script>
+</body>
+</html>
