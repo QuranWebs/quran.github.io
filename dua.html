@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Duas</title>
+  <style>
+    :root {
+      --primary: #61a075;
+      --darkgreen: #447654;
+      --bg: #b2dabf;
+      --text: #333;
+      --white: #fff;
+      --bars: #FAF9F6;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--bars);
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--darkgreen);
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: var(--darkgreen);
+      font-weight: 500;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      color: var(--primary);
+      cursor: pointer;
+    }
+
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0 2rem;
+      background: var(--primary);
+      color: var(--white);
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      background: var(--white);
+      color: var(--primary);
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .image-row {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 2rem;
+    }
+
+    .image-card {
+      text-align: center;
+      max-width: 200px;
+    }
+
+    .image-card img {
+      width: 100%;
+      border-radius: 10px;
+    }
+
+    .hover-button {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 15px;
+      background-color: #ff0000;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+    }
+
+    .hover-button:hover {
+      background-color: #cc0000;
+    }
+
+    .duas-section {
+      background: #fff;
+      padding: 3rem 1rem;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .section-title {
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+
+    .section-description {
+      text-align: center;
+      margin-bottom: 2rem;
+      color: #555;
+    }
+
+    .dua-card {
+      background: #d2e7d6;
+      border-left: 5px solid #4CAF50;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+      padding: 1.5rem;
+      margin-bottom: 1.5rem;
+      border-radius: 8px;
+    }
+
+    .dua-card h3 {
+      margin-bottom: 0.5rem;
+      color: #2c3e50;
+    }
+
+    blockquote {
+      font-style: italic;
+      background: #f1f1f1;
+      padding: 1rem;
+      margin: 1rem 0;
+      border-left: 4px solid #ccc;
+    }
+
+    .reference {
+      display: block;
+      margin-top: 0.5rem;
+      font-size: 0.9rem;
+      color: #333;
+    }
+
+    .reflection {
+      font-size: 1rem;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: var(--bars);
+    }
+
+    .dark-toggle {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      background: var(--darkgreen);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.2rem;
+    }
+
+    .dark-mode {
+      background-color: #333;
+      color: #f1f1f1;
+    }
+
+    .dark-mode .navbar,
+    .dark-mode footer {
+      background-color: #222;
+    }
+
+    .dark-mode .dua-card {
+      background-color: #444;
+      color: #f1f1f1;
+    }
+
+    .dark-mode .hero {
+      background-color: #222;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">QuranHelp</div>
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html"><b>Home</b></a></li>
+        <li><a href="dua.html"><b>Duas</b></a></li>
+        <li><a href="lessons.html"><b>Lessons</b></a></li>
+        <li><a href="video.html"><b>Videos</b></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>Duas</h1>
+    <p>Duas are important because they create a direct and personal connection <br>between you and Allah (SWT), allowing for sincere communication without barriers.<br> We express our dependence on Allah (SWT) reminding us that we need His help in all<br> aspects of life. In times of difficulty or peace, duas bring emotional relief,<br> spiritual strength, and a sense of hope rooted in faith.
+</p>
+    <a href="#emotions" class="btn">View</a>
+  </section>
+
+
+<section class="custom-section">
+  <div class="custom-content">
+    <h2>Duas and Dhikers</h2>
+    <br>
+
+    <!-- First Row -->
+    <div class="image-row">
+      <div class="image-card">
+        <img src="morningdhikr.png" alt="Morning Dhikr">
+        <a href="morningdhikr.html" class="hover-button">Morning Dhikr</a>
+      </div>
+      <div class="image-card">
+        <img src="eveningdhikr.png" alt="eveningdhikr">
+        <a href="eveningdhikr.html" class="hover-button">Evening Dhikr</a>
+      </div>
+      <div class="image-card">
+        <img src="beforesleepdhikr.png" alt="beforesleepdhikr">
+        <a href="beforesleepdhikr.html" class="hover-button">Before Sleep Dhikr</a>
+      </div>
+      <div class="image-card">
+        <img src="salahdhikr.png" alt="salahdhikr">
+        <a href="salahdhikr.html" class="hover-button">Salah Dhikr</a>
+      </div>
+    </div>
+
+    <!-- Second Row -->
+    <div class="image-row">
+      <div class="image-card">
+        <img src="FILL_IN_IMAGE_1.png" alt="FILL_IN_ALT_1">
+        <a href="FILL_IN_PAGE_1.html" class="hover-button">View Channel Page</a>
+      </div>
+      <div class="image-card">
+        <img src="FILL_IN_IMAGE_2.png" alt="FILL_IN_ALT_2">
+        <a href="FILL_IN_PAGE_2.html" class="hover-button">View Channel Page</a>
+      </div>
+      <div class="image-card">
+        <img src="FILL_IN_IMAGE_3.png" alt="FILL_IN_ALT_3">
+        <a href="FILL_IN_PAGE_3.html" class="hover-button">View Channel Page</a>
+      </div>
+      <div class="image-card">
+        <img src="FILL_IN_IMAGE_4.png" alt="FILL_IN_ALT_4">
+        <a href="FILL_IN_PAGE_4.html" class="hover-button">View Channel Page</a>
+      </div>
+    </div>
+
+  </div>
+</section>
+<section class="duas-section">
+  <div class="container">
+    <h2 class="section-title">Duas of the Prophets</h2>
+    <p class="section-description">
+      These duas are recorded in the Qur’an or authentic hadith. <br>Each is followed by a reflection to help apply it in our lives today.
+    </p>
+
+  <!-- START: Complete Dua List for All Prophets -->
+
+<div class="dua-card">
+  <h3>Prophet Adam (AS)</h3>
+  <blockquote>
+    “Our Lord, we have wronged ourselves. If You do not forgive us and have mercy upon us, we will surely be among the losers.”
+    <span class="reference">— Surah Al-A’raf 7:23</span>
+  </blockquote>
+  <p class="reflection">
+    When you make mistakes or fall into sin, turn to Allah like Adam did. This dua is a model for seeking sincere forgiveness without excuses.
+  </p>
+</div>
+
+<div class="dua-card">
+  <h3>Prophet Nuh (AS)</h3>
+  <blockquote>
+    “My Lord, I seek refuge in You from asking that of which I have no knowledge...”
+    <span class="reference">— Surah Hud 11:47</span>
+  </blockquote>
+  <p class="reflection">
+    When you don’t understand Allah’s wisdom or face trials, submit to His knowledge. Use this dua to stay humble and trust in His plan.
+  </p>
+</div>
+
+<div class="dua-card">
+  <h3>Prophet Ibrahim (AS)</h3>
+  <blockquote>
+    “My Lord, make me an establisher of prayer, and [many] from my descendants...”
+    <span class="reference">— Surah Ibrahim 14:40</span>
+  </blockquote>
+  <p class="reflection">
+    This dua reminds us to prioritize prayer for ourselves and our families. In a world of distractions, ask Allah to keep you and your children connected to salah.
+  </p>
+</div>
+
+<div class="dua-card">
+  <h3>Prophet Lut (AS)</h3>
+  <blockquote>
+    “My Lord, save me and my family from [the consequence of] what they do.”
+    <span class="reference">— Surah Ash-Shu’ara 26:169</span>
+  </blockquote>
+  <p class="reflection">
+    When surrounded by immoral environments, ask Allah to protect your heart and household. This is a powerful dua for moral safety and faith.
+  </p>
+</div>
+
+<div class="dua-card">
+  <h3>Prophet Ismail (AS)</h3>
+  <blockquote>
+    “O my Lord, make me one who establishes regular prayer, and from my descendants as well.”
+    <span class="reference">— Surah Ibrahim 14:40</span>
+  </blockquote>
+  <p class="reflection">
+    Use this dua to beg Allah for consistency in prayer, especially when you're struggling. It reflects both personal devotion and parental concern.
+  </p>
+</div>
+
+<div class="dua-card">
+  <h3>Prophet Yaqub (AS)</h3>
+  <blockquote>
+    “I only complain of my suffering and my grief to Allah...”
+    <span class="reference">— Surah Yusuf 12:86</span>
+  </blockquote>
+  <p class="reflection">
+    In moments of heartbreak or loss, express your pain to Allah like Yaqub. He listens, even when no one else understands.
+  </p>
+</div>
+
+<div class="dua-card">
+  <h3>Prophet Yusuf (AS)</h3>
+  <blockquote>
+    “Creator of the heavens and earth, You are my protector in this world and the Hereafter. Cause me to die a Muslim and join me with the righteous.”
+    <span class="reference">— Surah Yusuf 12:101</span>
+  </blockquote>
+  <p class="reflection">
+    Even in success, remain humble and mindful of your end. This dua reminds us to always aim for a righteous death and afterlife.
+  </p>
+</div>
+
+<div class="dua-card">
+  <h3>Prophet Ayyub (AS)</h3>
+  <blockquote>
+    “Indeed, adversity has touched me, and You are the Most Merciful of the merciful.”
+    <span class="reference">— Surah Al-Anbiya 21:83</span>
+  </blockquote>
+  <p class="reflection">
+    In pain, illness, or emotional distress, follow Ayyub’s example by acknowledging your struggle while affirming Allah’s mercy. It’s a formula for patient endurance.
+  </p>
+</div>
+
+<div class="dua-card">
+  <h3>Prophet Musa (AS)</h3>
+  <blockquote>
+    “My Lord, expand for me my chest, ease my task for me, and untie the knot from my tongue so that they may understand my speech.”
+    <span class="reference">— Surah Taha 20:25–28</span>
+  </blockquote>
+  <p class="reflection">
+    Say this dua when feeling nervous, especially before interviews, speeches, or exams. It brings confidence and clarity in communication.
+  </p>
+</div>
+
+<div class="dua-card">
+  <h3>Prophet Dawud (AS)</h3>
+  <blockquote>
+    “Our Lord, decide between us and our people in truth, and You are the best of those who give decision.”
+    <span class="reference">— Surah Al-A’raf 7:89</span>
+  </blockquote>
+  <p class="reflection">
+    When seeking justice or facing a difficult conflict, turn to Allah for fair judgment. This dua centers truth over emotion.
+  </p>
+</div>
+
+<div class="dua-card">
+  <h3>Prophet Sulaiman (AS)</h3>
+  <blockquote>
+    “My Lord, enable me to be grateful for Your favor which You have bestowed upon me and upon my parents...”
+    <span class="reference">— Surah An-Naml 27:19</span>
+  </blockquote>
+  <p class="reflection">
+    If you’re blessed with talents, resources, or knowledge, use this dua to remain grounded and grateful. It’s a reminder to channel success toward righteousness.
+  </p>
+</div>
+
+<div class="dua-card">
+  <h3>Prophet Yunus (AS)</h3>
+  <blockquote>
+    “There is no deity except You; glory be to You. Indeed, I was among the wrongdoers.”
+    <span class="reference">— Surah Al-Anbiya 21:87</span>
+  </blockquote>
+  <p class="reflection">
+    If you feel lost, trapped by anxiety, or burdened by mistakes, this is a powerful cry for relief. It’s the ultimate dua for redemption and escape from darkness.
+  </p>
+</div>
+
+<div class="dua-card">
+  <h3>Prophet Zakariya (AS)</h3>
+  <blockquote>
+    “My Lord, do not leave me alone [without offspring], though You are the best of inheritors.”
+    <span class="reference">— Surah Al-Anbiya 21:89</span>
+  </blockquote>
+  <p class="reflection">
+    If you're longing for children, companionship, or support, make this tender dua. It shows how to ask with both desire and humility.
+  </p>
+</div>
+
+<div class="dua-card">
+  <h3>Prophet Isa (AS)</h3>
+  <blockquote>
+    “If You should punish them—indeed they are Your servants; but if You forgive them—indeed it is You who is the Exalted in Might, the Wise.”
+    <span class="reference">— Surah Al-Ma’idah 5:118</span>
+  </blockquote>
+  <p class="reflection">
+    Use this dua when praying for others, especially those who’ve strayed. Isa (AS) showed compassion and left judgment to Allah—so should we.
+  </p>
+</div>
+
+<div class="dua-card">
+  <h3>Prophet Muhammad (SAW)</h3>
+  <blockquote>
+    “O Turner of hearts, keep my heart firm on Your religion.”
+    <span class="reference">— Hadith (Tirmidhi)</span>
+  </blockquote>
+  <p class="reflection">
+    In times of spiritual doubt or temptation, repeat this often. Even the Prophet ﷺ prayed for firmness—showing us how much we need Allah’s guidance.
+  </p>
+</div>
+
+  
+  <section class="custom-section">
+    <div class="custom-content">
+      <h2>More Information</h2>
+      <p>When feeling lost, remember that Allah is always near and His mercy is endless. Turn to Him through prayer and the Qur'an, as they offer comfort, clarity, and guidance. </p>
+      <br>
+<a href="https://www.youtube.com" class="hover-button" target="_blank"><b>Watch More on YouTube</b></a>
+    </div>
+  </section>
+
+
+  <footer>
+    <p>© QuranWebs.</p>
+  </footer>
+    <button class="dark-toggle" onclick="toggleDarkMode()" aria-label="Toggle dark mode">☽</button>
+
+  <script>
+    function toggleMenu() {
+      const navLinks = document.getElementById('navLinks');
+      navLinks.classList.toggle('active');
+    }
+
+    function toggleDarkMode() {
+      document.body.classList.toggle('dark-mode');
+    }
+    // Toggle mobile menu
+function toggleMenu() {
+  const nav = document.getElementById("navLinks");
+  nav.classList.toggle("show");
+}
+
+// Toggle dark mode and save preference
+function toggleDarkMode() {
+  document.body.classList.toggle("dark-mode");
+  const theme = document.body.classList.contains("dark-mode") ? "dark" : "light";
+  localStorage.setItem("theme", theme);
+}
+
+// Load theme on page load
+window.addEventListener("DOMContentLoaded", () => {
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme === "dark") {
+    document.body.classList.add("dark-mode");
+  }
+});
+
+function toggleMoreEmotions() {
+  const extraCards = document.querySelectorAll('.extra-card');
+  const arrow = document.getElementById('arrow');
+  const showing = extraCards[0].classList.contains('show');
+
+  extraCards.forEach(card => {
+    card.classList.toggle('show');
+  });
+
+  arrow.textContent = showing ? '▾' : '▴';
+}
+  </script>
+</body>
+</html>
