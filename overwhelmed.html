@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Overwhelmed</title>
+  <style>
+    :root {
+      --primary: #61a075;
+      --darkgreen: #447654;
+      --bg: #b2dabf;
+      --text: #333;
+      --white: #fff;
+      --bars: #FAF9F6;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--bars);
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--darkgreen);
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: var(--darkgreen);
+      font-weight: 500;
+    }
+
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      color: var(--primary);
+      cursor: pointer;
+    }
+
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0 2rem;
+      background: var(--primary);
+      color: var(--white);
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      background: var(--white);
+      color: var(--primary);
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 2rem;
+      padding: 3rem 10%;
+    }
+
+    .feature-card {
+      background: var(--white);
+      padding: 1rem;
+      border-radius: 2rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      text-align: center;
+    }
+
+    .custom-section {
+      height: 50vh;
+      background: #cae7d4;
+      padding: 4rem 2rem;
+      text-align: center;
+      color: var(--text);
+    }
+
+    .custom-section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--darkgreen);
+    }
+
+    .custom-section p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .hover-button {
+      background-color: #65b37d;
+      color: white;
+      padding: 12px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .hover-button:hover {
+      transform: translateY(-5px);
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: var(--white);
+      color: var(--text);
+      box-shadow: 0 -2px 5px rgba(0,0,0,0.05);
+    }
+
+    body.dark-mode {
+      --bg: #b9dae5;
+      --text: #1a1a1a;
+      --primary: #83acba;
+      --white: #1e1e1e;
+    }
+
+    body.dark-mode .navbar,
+    body.dark-mode footer {
+      background: var(--white);
+    }
+
+    body.dark-mode .hero {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    body.dark-mode .feature-card {
+      background: #b9dae5;
+      color: var(--text);
+    }
+
+    .dark-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      font-size: 24px;
+      cursor: pointer;
+      z-index: 1000;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .dark-toggle:hover {
+      background: #4f46e5;
+      transform: scale(1.1);
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        flex-direction: column;
+        display: none;
+        position: absolute;
+        top: 60px;
+        right: 2rem;
+        background: var(--white);
+        padding: 1rem;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        border-radius: 0.5rem;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">QuranHelp</div>
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html"><b>Home</b></a></li>
+        <li><a href="dua.html"><b>Duas</b></a></li>
+        <li><a href="lessons.html"><b>Lessons</b></a></li>
+        <li><a href="video.html"><b>Videos</b></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>I am feeling - Overwhelmed</h1>
+    <p>If you're feeling overwhelmed as a Muslim, turning to your faith and seeking <br>support can help. Focus on self-care, prayer, and reaching out to others. Remember <br>that Allah would never burden you beyond your capacity, and seeking help from loved ones,<br> a Muslim therapist, or a trusted Imam is a great way to start.</p>
+    <a href="#emotions" class="btn">Duas</a>
+  </section>
+
+  <br>
+  <h2 id="emotions" style="text-align:center;">Duas when feeling Overwhelmed</h2>
+<section class="features">
+  <h2 style="text-align:center;">#1 <br> اَللّٰهُمَّ إِنِّيْ أَعُوْذُ بِكَ مِنَ الْهَمِّ وَالْحَزَنِ ، وَأَعُوْذُ بِكَ مِنَ الْعَجْزِ وَالْكَسَلِ، وَأَعُوْذُ بِكَ مِنَ الْجُبْنِ وَالْبُخْلِ ، وَأَعُوْذُ بِكَ مِنْ غَلَبَةِ الدَّيْنِ وَقَهْرِ الرِّجَالِ</h2>
+  <div class="feature-card">
+    <h3 style="text-align:center;">
+      Allāhumma innī aʿūdhu bika min-l-hammi wa-l-ḥazan, wa aʿūdhu bika min-l-ʿajzi wa-l-kasal, wa aʿūdhu bika min-l-jubni wa-l-bukhl, wa aʿūdhu bika min ghalabati-d-dayni wa qahri-r-rijāl.<br>
+      “O Allah, I seek Your protection from anxiety and grief. I seek Your protection from inability and laziness. I seek Your protection from cowardice and miserliness, and I seek Your protection from being overcome by debt and being overpowered by men.”
+    </h3>
+  </div>
+
+  <h2 style="text-align:center;">#2 <br> اَللّٰهُمَّ إِنِّيْ أَسْأَلُكَ الْعَافِيَةَ فِي الدُّنْيَا وَالْآخِرَةِ ، اَللّٰهُمَّ إِنِّيْ أَسْأَلُكَ الْعَفْوَ وَالْعَافِيَةَ فِيْ دِيْنِيْ وَدُنْيَايَ وَأَهْلِيْ وَمَالِيْ ، اَللّٰهُمَّ اسْتُرْ عَوْرَاتِيْ وَآمِنْ رَوْعَاتِيْ ، اَللّٰهُمَّ احْفَظْنِيْ مِنْ بَيْنِ يَدَيَّ ، وَمِنْ خَلْفِيْ ، وَعَنْ يَّمِيْنِيْ ، وَعَنْ شِمَالِيْ ، وَمِنْ فَوْقِيْ ، وَأَعُوْذُ بِعَظَمَتِكَ أَنْ أُغْتَالَ مِنْ تَحْتِيْ</h2>
+  <div class="feature-card">
+    <h3 style="text-align:center;">
+      Allāhumma innī as’aluka-l-ʿāfiyata fi-d-dunyā wa-l-ākhirah. Allāhumma innī as’aluka-l-ʿafwa wa-l-ʿāfiyata fī dīnī wa dunyāya wa ahlī wa mālī, Allāhumma-stur ʿawrātī wa āmin rawʿātī. Allāhumma-ḥfaẓnī mim bayni yadayya wa min khalfī, wa ʿay-n yamīnī wa ʿan shimālī wa min fawqī, wa aʿūdhu bi-ʿaẓamatika an ughtāla min taḥtī.<br>
+      “O Allah, I ask You for well-being in this world and the next. O Allah, I ask You for forgiveness and well-being in my religion, in my worldly affairs, in my family and in my wealth. O Allah, conceal my faults and calm my fears. O Allah, guard me from in front of me and behind me, from my right, and from my left, and from above me. I seek protection in Your Greatness from being unexpectedly destroyed from beneath me.”
+    </h3>
+  </div>
+
+  <h2 style="text-align:center;">#3 <br> حَسْبِيَ اللّٰهُ لَا إِلٰهَ إِلَّا هُوَ ، عَلَيْهِ تَوَكَّلْتُ ، وَهُوَ رَبُّ الْعَرْشِ الْعَظِيْمِ</h2>
+  <div class="feature-card">
+    <h3 style="text-align:center;">
+      Ḥasbiya-Allāhu lā ilāha illā Huwa, ʿalayhi tawakkaltu, wa Huwa Rabbu-l-ʿArshi-l-ʿaẓīm.<br>
+      “Allah is sufficient for me. There is no god worthy of worship except Him. I have placed my trust in Him only and He is the Lord of the Magnificent Throne.”
+    </h3>
+  </div>
+</section>
+
+
+  <section class="custom-section">
+    <div class="custom-content">
+      <h2>More Information</h2>
+      <p>You can find a path toward managing overwhelming feelings and strengthening your faith and resilience. Remember, you are not alone and support is available, you just have to open your eyes and see!</p>
+      <br>
+      <button class="hover-button"><b>Learn More</b></button>
+    </div>
+  </section>
+
+  <footer>
+    <p>© QuranWebs.</p>
+  </footer>
+
+  <button class="dark-toggle" onclick="toggleDarkMode()" aria-label="Toggle dark mode">☽</button>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById("navLinks");
+      nav.classList.toggle("show");
+    }
+
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+      const theme = document.body.classList.contains("dark-mode") ? "dark" : "light";
+      localStorage.setItem("theme", theme);
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme === "dark") {
+        document.body.classList.add("dark-mode");
+      }
+    });
+  </script>
+</body>
+</html>
