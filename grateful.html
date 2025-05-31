@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>QuranHelp</title>
+  <style>
+    /* Root Variables */
+    :root {
+      --primary: #61a075;
+      --darkgreen: #447654;
+      --bg: #b2dabf;
+      --text: #333;
+      --white: #fff;
+      --bars: #FAF9F6;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* Navbar */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--bars);
+      padding: 1rem 2rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+
+    .logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: var(--darkgreen);
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 1rem;
+    }
+
+    .nav-links li a {
+      text-decoration: none;
+      color: var(--darkgreen);
+      font-weight: 500;
+    }
+
+    /* Hamburger menu for small screens */
+    .menu-toggle {
+      display: none;
+      font-size: 1.5rem;
+      background: none;
+      border: none;
+      color: var(--primary);
+      cursor: pointer;
+    }
+
+    /* Hero Section */
+    .hero {
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 0 2rem;
+      background: var(--primary);
+      color: var(--white);
+      text-align: center;
+    }
+
+    .hero h1 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      background: var(--white);
+      color: var(--primary);
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    /* Features Grid */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+      gap: 2rem;
+      padding: 3rem 10%;
+    }
+
+    /* Feature Cards */
+    .feature-card {
+      background: var(--white);
+      padding: 1rem;
+      border-radius: 2rem;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: transform 0.3s ease;
+      text-align: center;
+    }
+
+    /* Custom Section */
+    .custom-section {
+      height: 60vh;
+      background: #cae7d4;
+      padding: 4rem 2rem;
+      text-align: center;
+      color: var(--text);
+    }
+
+    .custom-section h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: var(--darkgreen);
+    }
+
+    .custom-section p {
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+
+    .hover-button {
+      background-color: #65b37d;
+      color: white;
+      padding: 12px 24px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s, transform 0.3s;
+    }
+
+    .hover-button:hover {
+      transform: translateY(-5px);
+    }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 1.5rem;
+      background: var(--white);
+      color: var(--text);
+      box-shadow: 0 -2px 5px rgba(0,0,0,0.05);
+    }
+
+    /* Dark Mode */
+    body.dark-mode {
+      --bg: #b9dae5;
+      --text: #1a1a1a;
+      --primary: #83acba;
+      --white: #1e1e1e;
+    }
+
+    body.dark-mode .navbar,
+    body.dark-mode footer {
+      background: var(--white);
+    }
+
+    body.dark-mode .hero {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    body.dark-mode .feature-card {
+      background: #b9dae5;
+      color: var(--text);
+    }
+
+    /* Dark Mode Toggle Button */
+    .dark-toggle {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--primary);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 48px;
+      height: 48px;
+      font-size: 24px;
+      cursor: pointer;
+      z-index: 1000;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .dark-toggle:hover {
+      background: #4f46e5;
+      transform: scale(1.1);
+    }
+
+    /* Responsive Navbar */
+    @media (max-width: 768px) {
+      .nav-links {
+        flex-direction: column;
+        display: none;
+        position: absolute;
+        top: 60px;
+        right: 2rem;
+        background: var(--white);
+        padding: 1rem;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        border-radius: 0.5rem;
+      }
+
+      .nav-links.show {
+        display: flex;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">QuranHelp</div>
+      <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="index.html"><b>Home</b></a></li>
+        <li><a href="dua.html"><b>Duas</b></a></li>
+        <li><a href="lessons.html"><b>Lessons</b></a></li>
+        <li><a href="video.html"><b>Videos</b></a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>I am feeling - Grateful</h1>
+    <p>In Islam, feeling grateful is a fundamental virtue and a way to deepen one's <br>connection with Allah. It involves acknowledging and appreciating Allah's blessings,<br> no matter how big or small, and expressing that appreciation through various<br> actions and duas</p>
+    <a href="#emotions" class="btn">Duas</a>
+  </section>
+
+  <br>
+  <h2 id="emotions" style="text-align:center;">Duas for Gratitude</h2>
+<section class="features">
+
+  <h2 style="text-align:center;">#1 <br>اَللّٰهُمَّ مَا أَصْبَحَ بِيْ مِنْ نِّعْمَةٍ أَوْ بِأَحَدٍ مِّنْ خَلْقِكَ ، فَمِنْكَ وَحْدَكَ لَا شَرِيْكَ لَكَ ، فَلَكَ الْحَمْدُ وَلَكَ الشُّكْرُ</h2>
+  <div class="feature-card">
+    <h3 style="text-align:center;">
+      Allāhumma mā aṣbaḥa bī min niʿmatin aw bi-aḥadim-min khalqik, fa-minka waḥdaka lā sharīka lak, fa laka-l-ḥamdu wa laka-sh-shukr.<br>
+      "O Allah, all the favours that I or anyone from Your creation has received in the morning, are from You Alone. You have no partner. To You Alone belong all praise and all thanks."
+    </h3>
+  </div>
+
+  <h2 style="text-align:center;">#2 <br>اَلْحَمْدُ لِلّٰهِ الَّذِيْ أَطْعَمَنَا وَسَقَانَا ، وَكَفَانَا ، وَآوَانَا ، فَكَمْ مِّمَّنْ لَا كَافِيَ لَهُ وَلَا مُؤْوِيَ.</h2>
+  <div class="feature-card">
+    <h3 style="text-align:center;">
+      Al-ḥamdu li-llāhi-l-ladhī aṭʿamanā wa saqānā, wa kafānā, wa āwānā, fakam-mim-man lā kāfīya lahū walā mu’wiy.<br>
+      "All praise is for Allah, Who provided us food and drink and Who sufficed us and has sheltered us; for how many have none to suffice them or shelter them."
+    </h3>
+  </div>
+
+  <h2 style="text-align:center;">#3 <br>رَبِّ أَوْزِعْنِيْٓ أَنْ أَشْكُرَ نِعْمَتَكَ الَّتِيْٓ أَنْعَمْتَ عَلَيَّ وَعَلَىٰ وَالِدَيَّ وَأَنْ أَعْمَلَ صَالِحًا تَرْضَاهُ ، وَأَدْخِلْنِيْ بِرَحْمَتِكَ فِيْ عِبَادِكَ الصَّالِحِيْنَ</h2>
+  <div class="feature-card">
+    <h3 style="text-align:center;">
+      Rabbi awziʿnī an ashkura niʿmataka-l-latī anʿamta ʿalayya wa ʿalā wālidayya wa an aʿmala ṣāliḥan tarḍāh, wa adhkilnī bi-raḥmatika fī ʿibādika-ṣ-ṣāliḥīn.<br>
+      "My Lord, enable me to be grateful for Your favour which You have bestowed upon me and upon my parents, and to do good deeds that please You. And admit me by Your mercy amongst Your righteous servants. (27:19)"
+    </h3>
+  </div>
+
+  <h2 style="text-align:center;">#4 <br>رَبِّ أَوْزِعْنِيْٓ أَنْ أَشْكُرَ نِعْمَتَكَ الَّتِيْٓ أَنْعَمْتَ عَلَيَّ وَعَلَىٰ وَالِدَيَّ وَأَنْ أَعْمَلَ صَالِحًا تَرْضَاهُ ، وَأَصْلِحْ لِيْ فِيْ ذُرِّيَّتِيْ ، إِنِّيْ تُبْتُ إِلَيْكَ وَإِنِّيْ مِنَ الْمُسْلِمِيْنَ</h2>
+  <div class="feature-card">
+    <h3 style="text-align:center;">
+      Rabbi awziʿnī an ashkura niʿmataka-l-latī anʿamta ʿalayya wa ʿalā wālidayya wa an aʿmala ṣāliḥan tarḍāh, wa aṣliḥ lī fī dhuriyyatī, innī tubtu ilayka wa innī mina-l-muslimīn.<br>
+      "My Lord, enable me to be grateful for Your favour which You have bestowed upon me and upon my parents, and to do good deeds that please You. Make my offspring righteous; I truly repent to you, and truly I am of those who submit to You. (46:15)"
+    </h3>
+  </div>
+
+</section>
+
+  <!-- New Custom Section -->
+  <section class="custom-section">
+    <div class="custom-content">
+      <h2>More Information</h2>
+      <p>In the end, gratitude in Islam is a way of life, a constant reminder of Allah's blessings and an expression of love and devotion. By cultivating a grateful heart, Muslims can strengthen their relationship with Allah (SWT) and experience the richness and blessings. </p>
+      <br>
+<a href="video.html" class="hover-button"><b>Learn More</b></a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© QuranWebs.</p>
+  </footer>
+
+  <button class="dark-toggle" onclick="toggleDarkMode()" aria-label="Toggle dark mode">☽</button>
+
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById("navLinks");
+      nav.classList.toggle("show");
+    }
+
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark-mode");
+      const theme = document.body.classList.contains("dark-mode") ? "dark" : "light";
+      localStorage.setItem("theme", theme);
+    }
+
+    window.addEventListener("DOMContentLoaded", () => {
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme === "dark") {
+        document.body.classList.add("dark-mode");
+      }
+    });
+  </script>
+</body>
+</html>
