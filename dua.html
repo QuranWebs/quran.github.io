@@ -222,7 +222,360 @@
 
     .dark-mode .hero {
       background-color: #222;
-    }
+    }/* Root Variables */
+:root {
+  --primary: #61a075;
+  --darkgreen: #447654;
+  --bg: #b2dabf;
+  --text: #333;
+  --white: #fff;
+  --bars: #FAF9F6;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--bars);
+  padding: 1rem 2rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--darkgreen);
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: var(--darkgreen);
+  font-weight: 500;
+}
+
+/* Hamburger menu for small screens */
+.menu-toggle {
+  display: none;
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: var(--primary);
+  cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0 2rem;
+  background: var(--primary);
+  color: var(--white);
+  text-align: center;
+}
+
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.btn {
+  background: var(--white);
+  color: var(--primary);
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+}
+.image-row {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 2rem;
+}
+
+.image-card {
+  text-align: center;
+  max-width: 200px;
+}
+
+.image-card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.hover-button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 10px 15px;
+  background-color: #ff0000;
+  color: white;
+  text-decoration: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.hover-button:hover {
+  background-color: #cc0000;
+}
+
+/* Features Grid */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  gap: 2rem;
+  padding: 3rem 10%;
+}
+
+/* Feature Cards */
+.feature-card {
+  background: var(--white);
+  padding: 1rem;
+  border-radius: 2rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease;
+  text-align: center;
+} 
+
+/* More Emotions Toggle */
+.more-toggle {
+  grid-column: 1 / -1;
+  text-align: center;
+  margin-top: .0001rem;
+  cursor: pointer;
+  color: var(--primary);
+  font-weight: bold;
+  transition: color 0.3s ease;
+}
+
+.more-toggle:hover {
+  color: var(--darkgreen);
+}
+
+.more-emotions {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  padding: 0 15rem;
+}
+
+.hidden {
+  display: none;
+}
+
+.extra-card {
+  display: none;
+}
+
+.extra-card.show {
+  display: block;
+}
+.duas-section {
+  background: #ff;
+  padding: 3rem 1rem;
+  font-family: 'Segoe UI', sans-serif;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.section-description {
+  text-align: center;
+  margin-bottom: 2rem;
+  color: #555;
+}
+
+.dua-card {
+  background: #d2e7d6;
+  border-left: 5px solid #4CAF50;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+  border-radius: 8px;
+}
+
+.dua-card h3 {
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+blockquote {
+  font-style: italic;
+  background: #f1f1f1;
+  padding: 1rem;
+  margin: 1rem 0;
+  border-left: 4px solid #ccc;
+}
+
+.reference {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  color: #ff;
+}
+
+.reflection {
+  font-size: 1rem;
+  color: #333;
+  margin-top: 0.5rem;
+}
+
+
+/* Custom Section */
+.custom-section {
+  background: #cae7d4;
+  padding: 4rem 2rem;
+  text-align: center;
+  color: var(--text);
+}
+
+.custom-section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--darkgreen);
+}
+
+.custom-section p {
+  font-size: 1.1rem;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+.hover-button {
+  background-color: #65b37d; /* original green */
+  color: white;
+  padding: 12px 24px;
+  font-size: 16px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.hover-button:hover {
+  background-color: #65b37d; /* keep green on hover */
+  transform: translateY(-5px);
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  background: var(--white);
+  color: var(--text);
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.05);
+}
+
+/* Dark Mode */
+body.dark-mode {
+  --bg: #b9dae5;
+  --text: #1a1a1a;
+  --primary: #83acba;
+  --white: #1e1e1e;
+}
+
+body.dark-mode .navbar,
+body.dark-mode footer {
+  background: var(--white);
+}
+
+body.dark-mode .hero {
+  background: var(--primary);
+  color: var(--white);
+}
+
+body.dark-mode .feature-card {
+  background: #b9dae5;
+  color: var(--text);
+}
+
+/* Dark Mode Toggle Button */
+.dark-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  font-size: 24px;
+  cursor: pointer;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.dark-toggle:hover {
+  background: #4f46e5;
+  transform: scale(1.1);
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+  .nav-links {
+    flex-direction: column;
+    display: none;
+    position: absolute;
+    top: 60px;
+    right: 2rem;
+    background: var(--white);
+    padding: 1rem;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    border-radius: 0.5rem;
+  }
+
+  .nav-links.show {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
   </style>
 </head>
 <body>
